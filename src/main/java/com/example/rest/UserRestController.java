@@ -27,20 +27,26 @@ import com.example.form.UserListForm;
 
 
 @RestController
+
+//REST用のコントローラー、クラス内のメソッドの戻り値をRESTで受け取ることができる。
 @RequestMapping("/user")
 public class UserRestController {
 
 	@Autowired
+	//インスタンスの生成
 	private UserService userService;
 	
 	@Autowired
+	//インスタンスの生成
 	private ModelMapper modelMapper;
 	
 	@Autowired
+	//インスタンスの生成
 	private MessageSource messageSource;
 	
 	/** ユーザーを検索 */
 	@GetMapping("/get/list")
+	//GETメソッドのHTTPリクエストを受け付ける、[http://localhost:8080/signup/rest]へのリクエストを受け付け
 	public List<MUser> getUserList(UserListForm form) {
 		
 		//formをMUserクラスに変換
@@ -52,7 +58,9 @@ public class UserRestController {
 	}
 	
 	/** ユーザーを登録 */
+	//REST用のコントローラーを修正する
 	@PostMapping("/signup/rest")
+	//POSTメソッドのHTTPリクエストを受け付ける、[http://localhost:8080/signup/rest]へのリクエストを受け付け
 	public RestResult postSignup(@Validated(GroupOrder.class)SignupForm form, BindingResult bindingResult, Locale locale) {
 		
 		//入力チェック結果
@@ -63,6 +71,7 @@ public class UserRestController {
 			//エラーメッセージ取得
 			for (FieldError error:bindingResult.getFieldErrors()) {
 				String message = messageSource.getMessage(error, locale);
+				//エラーメッセージを取得できる
 				errors.put(error.getField(),message);
 			}
 			

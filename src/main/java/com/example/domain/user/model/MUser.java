@@ -15,6 +15,7 @@ import lombok.Data;
 
 
 @Data
+//クラス内の変数に対してgetter,setterでアクセスすることが可能になる
 @Entity
 @Table(name="m_user")
 public class MUser {

@@ -14,13 +14,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
+//セキュリティ設定クラスを用意する
 @Configuration
+//セキュリティ設定クラスを用意する
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
+	//インスタンスの生成
 	private UserDetailsService userDetailsService;
+	//UserDetailsServiceクラスの変数userDetailsService
 	
 	@Bean
+	//Beanを作成するものと認識される
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}

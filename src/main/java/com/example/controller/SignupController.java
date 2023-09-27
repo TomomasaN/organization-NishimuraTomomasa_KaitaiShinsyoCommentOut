@@ -87,6 +87,7 @@ public class SignupController {
 
 	/** データベース関連の例外処理 */
 	@ExceptionHandler(DataAccessException.class)
+	//例外処理を実装できる
 	public String dataAccessExceptionHandler(DataAccessException e, Model model) {
 
 		//空文字をセット

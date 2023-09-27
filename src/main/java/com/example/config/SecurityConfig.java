@@ -27,11 +27,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	//Beanを作成するものと認識される
 	public PasswordEncoder passwordEncoder() {
+		//インメモリ認証で用意したユーザーのパスワードを暗号化
 		return new BCryptPasswordEncoder();
 	}
 
 	/** セキュリティの対象外を設定 */
 	@Override
+	//オーバーライドする時に、引数の型などが間違ってないか確認できる
 	public void configure(WebSecurity web) throws Exception {
 		//セキュリティを適用しない
 		web
@@ -40,14 +42,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/css/**")
 		.antMatchers("/js/**")
 		.antMatchers("/h2-console/**");
+		//セキュリティ対象から除外する、antMatchersメソッドはメソッドチェーンを利用できる
 	}
 	
 	/** セキュリティの各種設定 */
 	@Override
+	//オーバーライドする時に、引数の型などが間違ってないか確認できる
 	protected void configure(HttpSecurity http) throws Exception {
 		//ログイン不要ページの設定
 		http
 		.authorizeRequests()
+		//直リンクを禁止する、パス毎の設定を追加していく
 		.antMatchers("/login").permitAll()//直リンクOK
 		.antMatchers("/user/signup").permitAll()//直リンクOK
 		.antMatchers("/user/signup/rest").permitAll()//直リンクOK
@@ -57,6 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//ログイン処理
 		 http
 		 .formLogin()
+		 //ログイン処理を追加する
 		 .loginProcessingUrl("/login")//ログイン処理のパス
 		 .loginPage("/login")//ログインページの指定
 		 .failureUrl("/login?error")//ログイン失敗時の遷移先
@@ -68,14 +74,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		 .logout()
 		 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+		 //GETメソッドでログアウトのリクエストを送る
 		 .logoutUrl("/logout")
+		 //ログアウトのリクエスト先パスを設定する
 		 .logoutSuccessUrl("/login?logout");
+		//ログアウト成功時の遷移先を指定する
 		
 		//CSRF対策を無効に設定（一時的）
 		// http.csrf().disable();
 	}
 	/** 認証の設定 */
 	@Override
+	//オーバーライドする時に、引数の型などが間違ってないか確認できる
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		PasswordEncoder encoder = passwordEncoder();
  //インメモリ認証

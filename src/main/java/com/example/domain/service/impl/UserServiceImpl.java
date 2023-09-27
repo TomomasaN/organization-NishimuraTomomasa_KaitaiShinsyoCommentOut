@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	
 	/** ユーザー登録 */
 	@Override
-	//インスタンスの生成
+	//オーバーライドする時に、引数の型などが間違ってないか確認できる
 	public void signup(MUser user) {
 		//signupメソッド、引数(MUser user)
 		user.setDepartmentId(1); //部署

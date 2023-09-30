@@ -24,7 +24,7 @@ public class UserApplicationService {
 		Map<String, Integer> genderMap = new LinkedHashMap<>();
 		//new LinkedHashMap<>()メソッドをMap<String, Integer> genderMapに代入
 		String male = messageSource.getMessage("male", null, locale);
-		//messageSource.getMessage("male", null, locale)メソッドをString maleに代入
+		//messageSource.getMessage("male", null, locale)メソッドをString maleに代入　getMessageメソッドを使用すれば、messages.propertiesの値を取得できる　getMessage{キー名、埋め込みパラメーター、ロケール}P70参照
 		String female = messageSource.getMessage("female", null, locale);
 		//messageSource.getMessage("female", null, locale)をString femaleに代入
 		genderMap.put(male, 1);

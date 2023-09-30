@@ -15,6 +15,7 @@ public class Salary {
 //private String userId;
 //private String yearMonth;
 @EmbeddedId
+//主キークラスを使う
 private SalaryKey salaryKey;
 private Integer salary;
 }

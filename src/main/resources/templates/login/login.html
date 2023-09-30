@@ -7,10 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- CSS読込 -->
 	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	//webjarsでダウンロードしたライブラリは@{webjars/}という形で呼び出すことができる
 	<link rel="stylesheet" th:href="@{/css/login/login.css}">
 	<!--JS読込 -->
 	<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+	//defer属性をつけるとHTMLの読み込み、JavaScriptの読み込みを並行で実施してくれる
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+	//defer属性をつけるとHTMLの読み込み、JavaScriptの読み込みを並行で実施してくれる
 	<title>ログイン</title>
 </head>
 
@@ -26,6 +29,7 @@
 			<div class="form-group">
 				<label for="userId" class="sr-only">userId</label>
 				<input type="text" class="form-control" placeholder="ユーザーID" name="userId" />
+				//本来パスワード入力欄にはinput type="password"を使用する、本書では画面に入力されたパスワードを表示するためにinput type="text"としている
 			</div>
 			<!-- パスワード -->
 			<div class="form-group">

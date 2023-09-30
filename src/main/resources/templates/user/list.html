@@ -11,7 +11,7 @@
 	<script th:src="@{/webjars/datatables/js/jquery.dataTables.min.js}" defer></script>
 	<script th:src="@{/js/user/list.js}" defer></script>
 </head>
-
+//DataTablesを使用するとHTMLのtableタグにJSONを簡単に反映させられる
 <body>
 	<div layout:fragment="content">
 		<div class="header border-bottom">
@@ -57,15 +57,19 @@
 							<td th:text="${#dates.format(item.birthday, 'YYYY/MM/dd')}"></td>
 							<td th:text="${item.age}"></td>
 							<td th:text="${item.gender == 1} ? '男性': '女性'"></td>
+							//Javaの三項式も使える
 							<td>
 								<a class="btn btn-primary" th:href="@{'/user/detail/' + ${item.userId}}">
+									//th属性の中では文字列の結合もできる。シングルクォーテーションで囲うと固定文字列になる、プラス記号を使えば文字列を結合できる
 									詳細
 								</a>
 							</td>
+							//ユーザー一覧画面から、ユーザー詳細画面に遷移できるようにリンクを付ける
 						</tr>
 					</tbody>
 			</table>
 		</div>
+		//ユーザー一覧表示するように画面を修正する
 		<!-- 一覧表示(REST) -->
 		<div>
 			<table id="user-list-table" class="table table-striped table-borderd table-hover w-100">

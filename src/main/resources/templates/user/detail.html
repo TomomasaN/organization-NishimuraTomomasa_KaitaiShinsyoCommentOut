@@ -83,6 +83,7 @@
 			</div>
 			<!-- 給料情報 -->
 			<th:block th:if="*{salaryList != null and salaryList.size() > 0}">
+				//th:if属性の結果がtrueを返した時にHTMLのタグを追加したくない場合がある、th:blockを使えばth:blockのタグ自体がなくなる、そしてth:blockタグの中のコードだけが残る
 				<div class="header border-bottom">
 					<h1 class="h2">給料</h1>
 				</div>

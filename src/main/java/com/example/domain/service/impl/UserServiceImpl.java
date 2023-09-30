@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
 	
 	/** ユーザー更新（1件） */
 	@Transactional
-	//複数の処理をまとめる仕組み
+	//複数の処理をまとめる仕組み、@Modifyingアノテーションをつけたメソッドを実行するためにつける。@Modifyingの有無にかかわらず、登録・更新・削除のSQLであればつける
 	@Override
 	//オーバーライドする時に、引数の型などが間違ってないか確認できる
 

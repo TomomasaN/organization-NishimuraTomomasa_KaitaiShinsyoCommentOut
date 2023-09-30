@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS employee
    name VARCHAR (50),
    age INT
 );
+//テーブル作成のSQL
 /* ユーザーマスタ */ CREATE TABLE IF NOT EXISTS m_user
 (
    user_id VARCHAR (50) PRIMARY KEY,

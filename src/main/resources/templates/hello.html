@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+	//Thymeleafを使えるようになる
 
 <head>
 	<meta charset="UTF-8">
@@ -10,9 +11,12 @@
 <body>
 	<h1>Hello World</h1>
 	<form method="post" action="/hello">
+		//サーバーにPOSTメソッドでリクエストを送る
 		入力:<input type="text" name="text1" />
+		//テキスト入力欄、@RequestParamの引数をname属性とあわせる
 		<input type="submit" value="クリック" />
 	</form>
+	//従業員IDを入力できるように画面を修正する
 	<br/>
 	<form method="post" action="/hello/db">
 		従業員ID:<input type="text" name="text2" th:value="${text2_value}" />

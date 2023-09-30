@@ -12,7 +12,9 @@
 				<a class="nav-link" th:href="@{'/user/list'}">ユーザ一覧</a>
 			</li>
 			<li role="presentation" sec:authorize="hasRole('ADMIN')">
+				//権限により画面に項目を表示するかどうかは、sec:authorize属性を使う。この属性内でhasRoleやAuthorityメソッドを呼び出す。それらのメソッドにはロールを設定する。そのロールをログインユーザーが持っていれば、項目が表示される。
 				<a class="nav-link" th:href="@{'/admin'}">アドミン専用</a>
+				//リンクを追加
 				</li>
 		</ul>
 	</div>
